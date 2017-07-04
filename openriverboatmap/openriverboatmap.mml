@@ -25,7 +25,7 @@
   "Layer": [
     {
       "Datasource": {
-        "file": "http://mapbox-geodata.s3.amazonaws.com/natural-earth-1.3.0/physical/10m-land.zip",
+        "file": "data/10m-land.shp",
         "type": "shape"
       },
       "class": "shp",
@@ -37,7 +37,7 @@
     },
     {
       "Datasource": {
-        "file": "http://tilemill-data.s3.amazonaws.com/osm/coastline-good.zip",
+        "file": "data/coastlines-split-3857/lines.shp",
         "type": "shape"
       },
       "class": "shp",
@@ -49,7 +49,7 @@
     },
     {
       "Datasource": {
-        "file": "http://tilemill-data.s3.amazonaws.com/osm/shoreline_300.zip",
+        "file": "data/shoreline_300.shp",
         "type": "shape"
       },
       "class": "shp",
@@ -1064,18 +1064,18 @@
 	},
     {
       "Datasource": {
-        "dbname": "osm",
+        "dbname": "gis",
         "geometry_field": "way",
-        "host": "localhost",
+        "host": "gis-db",
         "id": "waterway_signs",
         "key_field": "",
-        "password": "osm",
+        "password": "secret",
         "port": "5432",
         "project": "openriverboatmap",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
         "table": "( SELECT way, tags->'waterway:sign' as sign,name FROM planet_osm_point\n  WHERE tags ? 'waterway:sign') AS data",
         "type": "postgis",
-        "user": "osm",
+        "user": "maposmatic",
         "extent_cache": "auto",
         "extent": "-20037508,-19929239,20037508,19929239",
         "extent_from_subquery": "true"
